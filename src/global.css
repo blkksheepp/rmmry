@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "NeueMachina";
+    src: url("/fonts/primary/NeueMachina-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NeueMachina";
+    src: url("/fonts/primary/NeueMachina-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NeueMachina";
+    src: url("/fonts/primary/NeueMachina-Ultrabold.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+:root {
+    --white: #ffffff;
+    --black: #000000;
+
+    /* Light */
+    --bg-light: #f7f7f7;
+    --foreground-light: #0f1724;
+    --muted-light: #6b7280;
+    --muted-2-light: #9ca3af;
+    --border-light: rgba(15, 23, 36, 0.06);
+    --panel-light: #ffffff;
+    --icon-light: #374151;
+
+    --primary-500: #8FDCC0;
+    /* muted mint for CTAs */
+    --primary-600: #6FCFA3;
+    --gradient-primary: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+
+    /* Dark */
+    --bg-dark: #0b0b0b;
+    --foreground-dark: #e6eef1;
+    --muted-dark: #9aa6ab;
+    --muted-2-dark: #7b8a8f;
+    --border-dark: rgba(255, 255, 255, 0.06);
+    --panel-dark: rgba(255, 255, 255, 0.02);
+    --icon-dark: #9ca3a4;
+
+    --primary-dark-500: #3fcf9a;
+    --primary-dark-600: #2fbf87;
+    --gradient-primary-dark: linear-gradient(135deg, var(--primary-dark-500) 0%, var(--primary-dark-600) 100%);
+}
+
+
+:root {
+    --color-background: var(--bg-light);
+    --color-foreground: var(--foreground-light);
+    --color-muted: var(--muted-light);
+    --color-muted-2: var(--muted-2-light);
+    --color-border: var(--border-light);
+    --color-panel: var(--panel-light);
+    --color-icon: var(--icon-light);
+    --color-primary: var(--primary-500);
+    --color-gradient-primary: var(--gradient-primary);
+}
+
+:root.dark,
+.dark {
+    --color-background: var(--bg-dark);
+    --color-foreground: var(--foreground-dark);
+    --color-muted: var(--muted-dark);
+    --color-muted-2: var(--muted-2-dark);
+    --color-border: var(--border-dark);
+    --color-panel: var(--panel-dark);
+    --color-icon: var(--icon-dark);
+    --color-primary: var(--primary-dark-500);
+    --color-gradient-primary: var(--gradient-primary-dark);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    html,
+    body,
+    #root {
+        height: 100%
+    }
+
+    body {
+        margin: 0;
+        font-family: "NeueMachina", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: var(--color-background);
+        color: var(--color-foreground);
+        transition: all 350ms ease;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none
+    }
+
+    img {
+        max-width: 100%;
+        display: block;
+        border-style: none
+    }
+}
+
+@layer components {}
+
+@layer utilities {}
