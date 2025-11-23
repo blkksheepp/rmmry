@@ -6,7 +6,10 @@ export default {
     extract
   },
   theme: {
-    screens,
+    screens: {
+      xs: '20rem',
+      ...screens,
+    },
     fontSize,
     extend: {
       colors: {
