@@ -1,0 +1,4 @@
+{
+  "buildCommand": "rm -rf .vercel/cache && rm -rf node_modules/.cache && bun install --force && bun run build",
+  "framework": null
+}

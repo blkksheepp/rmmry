@@ -10,7 +10,7 @@ export function Navbar() {
 
     const [menuExpanded, setMenuExpanded] = useState(false);
     const isMobile = screenWidth < 1024; // md breakpoint
-    const navExpandedMobileClass = menuExpanded && isMobile ? `pb-[${screenWidth >= 768 ? "8" : "10"}rem]` : '';
+    const navExpandedMobileClass = menuExpanded && isMobile ? (screenWidth >= 768 ? "pb-[8rem]" : "pb-[10rem]") : '';
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);

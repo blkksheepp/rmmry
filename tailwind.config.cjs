@@ -1,15 +1,16 @@
-import fluid, { extract, screens, fontSize } from 'fluid-tailwind'
+const fluid = require('fluid-tailwind').default
+const { extract, screens, fontSize } = require('fluid-tailwind')
 
-export default {
+module.exports = {
   content: {
-    files: ['./src/**/*.{html,js,jsx,ts,tsx}'],
-    extract
+    files: ['./src/**/*.{js,jsx,ts,tsx}'],
+    extract,
   },
   theme: {
     screens: {
       xs: '20rem',
-      xxl: '120rem',
       ...screens,
+      xxl: '120rem',
     },
     fontSize,
     extend: {
@@ -39,7 +40,5 @@ export default {
       }
     }
   },
-  plugins: [
-    fluid,
-  ]
+  plugins: [fluid],
 }

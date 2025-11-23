@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.19",
+    "fluid-tailwind": "^1.0.4",
     "lucide-react": "^0.552.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -29,7 +30,6 @@
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
-    "fluid-tailwind": "^1.0.4",
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
     "typescript": "~5.9.3",
