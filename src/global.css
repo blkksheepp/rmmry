@@ -66,6 +66,8 @@
     --color-icon: var(--icon-light);
     --color-primary: var(--primary-500);
     --color-gradient-primary: var(--gradient-primary);
+
+    --color-blur-bg: var(--color-zinc-800/10);
 }
 
 :root.dark,
@@ -79,6 +81,8 @@
     --color-icon: var(--icon-dark);
     --color-primary: var(--primary-dark-500);
     --color-gradient-primary: var(--gradient-primary-dark);
+
+    --color-blur-bg: var(--color-zinc-100/10);
 }
 
 @tailwind base;

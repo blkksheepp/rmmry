@@ -16,7 +16,7 @@ export function ThemeToggle() {
             onClick={toggleTheme}
             onMouseEnter={() => setIsHovered(false)}
             onMouseLeave={() => setIsHovered(true)}
-            className="absolute bg-panel p-2.5 rounded-full transition-all duration-[450ms] ~right-4/10 ~bottom-4/10">
+            className="fixed bg-panel p-2.5 rounded-full transition-all duration-[450ms] ~right-4/10 ~bottom-4/10">
             <div className="relative w-4 h-4">
                 <Lightbulb 
                     className={`absolute inset-0 w-4 h-4 text-foreground transition-all duration-[400ms] 

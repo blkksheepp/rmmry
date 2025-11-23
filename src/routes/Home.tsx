@@ -1,10 +1,11 @@
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Home/Hero';
 import { ThemeToggle } from '../components/ThemeToggle';
+import { useEffect, useState } from 'react';
 
 const BgPatterns = () => {
   return (
-    <svg className="-z-20 fixed inset-0 opacity-30 pointer-events-none" width="100%" height="100%">
+    <svg className="-z-20 absolute w-full h-full inset-0 opacity-30 overflow-hidden pointer-events-none" width="100%" height="100%">
       {/* Wireframe Grid */}
       <defs>
         <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
@@ -25,11 +26,27 @@ const BgPatterns = () => {
 }
 
 const BgElements = () => {
+  const promptText = "This is a long prompt I spent ages writing. I know I’ll need it again, but where do I keep it? If I leave it in this chat, it’ll get buried forever. I just need a simple way to save it.";
+
+  const [promptRows, setRows] = useState(6);
+  useEffect(() => {
+    const onResize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 1200) {
+        setRows(6);
+      } else {
+        setRows(5);
+      }
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [promptText]);
+
   return (
-    <div className="-z-10 absolute inset-0 opacity-85 w-full h-full">
+    <div className="-z-10 absolute inset-0 opacity-85 w-full h-full overflow-hidden">
       {/* Prompt Input */}
-      <div className="top-[20%] left-[16%] relative w-[400px]">
-        <div className="-top-6 left-0 absolute font-mono text-[14px] text-muted uppercase tracking-wider">Prompt Input</div>
+      <div className="relative h-fit ~top-[12rem]/[12.5rem] ~/xxl:~left-[1.5rem]/[20.4rem] ~w-[18rem]/[24rem]">
+        <div className="-top-6 left-0 absolute font-mono text-muted uppercase tracking-wider ~text-xs/sm">Prompt Input</div>
         <div className="relative bg-background p-4 border border-zinc-700 border-dashed">
           <div className="top-0 left-0 absolute border-icon border-t-2 border-l-2 w-3 h-3"></div>
           <div className="top-0 right-0 absolute border-icon border-t-2 border-r-2 w-3 h-3"></div>
@@ -37,16 +54,19 @@ const BgElements = () => {
           <div className="right-0 bottom-0 absolute border-icon border-r-2 border-b-2 w-3 h-3"></div>
 
           <textarea
-            value={"This is a long prompt I spent ages writing. I know I’ll need it again, but where do I keep it? If I leave it in this chat, it’ll get buried forever. I just need a simple way to save and find it later."}
-            className="bg-transparent focus:outline-none w-full min-h-[100px] font-mono text-muted-2 text-xs md:text-sm leading-relaxed resize-none"
+            rows={promptRows}
+            value={promptText}
+            className="bg-transparent focus:outline-none w-full min-h-fit font-mono text-muted-2 leading-relaxed resize-none ~text-[0.84rem]/[0.85rem]"
             spellCheck={false}
             placeholder="Enter your unstructured thought here..."
           />
         </div>
       </div>
 
+      
+
       {/* Saved Prompt */}
-      <div className="top-[30%] left-[64%] relative w-[340px]">
+      <div className="top-[25%] relative ~/xxl:~left-[0.4rem]/[81.9rem] ~w-[18rem]/[21.2rem]">
         <div className="relative flex flex-col justify-center items-start gap-1 bg-background px-4 pt-3 pb-4 border border-zinc-700 border-dashed w-full text-muted-2">
           <div className="top-0 left-0 absolute border-icon border-t-2 border-l-2 w-3 h-3"></div>
           <div className="top-0 right-0 absolute border-icon border-t-2 border-r-2 w-3 h-3"></div>
@@ -68,19 +88,23 @@ const BgElements = () => {
 
 const Home = () => {
   return (
-    <div className="relative w-full min-h-screen">      
-      {/* Background */}
-      <BgElements />
-      <BgPatterns />
-      
+    <div>
+      <div className="relative w-full [@media(max-height:850px)]:min-h-[calc(100vh+220px)] h-full">
+        {/* Background */}
+        <BgElements />
+        <BgPatterns />
 
-      {/* Content */}
-      <div className="flex flex-col justify-center items-center h-screen">
-        <Navbar />
-        <Hero />
-        <ThemeToggle />
+
+        {/* Content */}
+        <div className="flex flex-col justify-center items-center h-screen ">
+          <Navbar />
+          <Hero />
+        </div>
+
       </div>
+      <ThemeToggle />
     </div>
+
   )
 }
 

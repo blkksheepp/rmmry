@@ -8,6 +8,7 @@ export default {
   theme: {
     screens: {
       xs: '20rem',
+      xxl: '120rem',
       ...screens,
     },
     fontSize,
@@ -20,7 +21,8 @@ export default {
         border: "var(--color-border)",
         panel: "var(--color-panel)",
         icon: "var(--color-icon)",
-        primary: "var(--color-primary)"
+        primary: "var(--color-primary)",
+        "blur-bg": "var(--color-blur-bg)"
       },
       backgroundImage: {
         "primary-gradient": "var(--color-gradient-primary)"

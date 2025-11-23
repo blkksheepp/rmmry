@@ -10,7 +10,7 @@ export function Navbar() {
 
     const [menuExpanded, setMenuExpanded] = useState(false);
     const isMobile = screenWidth < 1024; // md breakpoint
-
+    const navExpandedMobileClass = menuExpanded && isMobile ? `pb-[${screenWidth >= 768 ? "8" : "10"}rem]` : '';
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
@@ -36,6 +36,8 @@ export function Navbar() {
         }
     }
 
+
+
     return (
         <nav
             ref={wrapperRef}
@@ -43,7 +45,14 @@ export function Navbar() {
             onKeyDown={handleKeyDown}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            className="top-0 left-0 fixed flex justify-between items-center lg:items-start pt-6 w-full select-none ~h-10/28 ~px-6/10"
+            className={`
+                top-0 left-0 fixed flex justify-between items-center lg:items-start
+                bg-blur-bg backdrop-blur-sm py-8 w-full select-none
+                ~h-10/28 ~px-6/10
+                overflow-visible
+                transition-padding duration-200 ease-in-out
+                ${navExpandedMobileClass}
+            `}
         >
             {/* Logo */}
             <div className="flex items-center ~gap-2/4">
@@ -94,8 +103,8 @@ export function Navbar() {
                     <div className="relative flex justify-end w-full">
                         {/* Tablet CTA */}
                         <button onClick={handleMenuExpanded} className="flex justify-between items-center bg-foreground px-4 md:py-1 rounded-full w-full max-w-[7.5rem] text-background uppercase ~/md:~py-0/1">
-                            <span>{isMobile ? "Menu" : "Add Extension"}</span>
-                            {isMobile && menuExpanded ? <ChevronDown className="w-6 h-6 translate-y-[1px]" strokeWidth={1.5} /> : <Plus className="w-5 h-5" strokeWidth={1.5} />}
+                            <span>Menu</span>
+                            <ChevronDown className="w-6 h-6 translate-y-[1px]" strokeWidth={1.5} />
                         </button>
 
                         {/* Absolute element positioned immediately under button */}
