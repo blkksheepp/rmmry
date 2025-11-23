@@ -8,7 +8,7 @@ export function Navbar() {
     const [hovered, setHovered] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    const [menuExpanded, setMenuExpanded] = useState(true);
+    const [menuExpanded, setMenuExpanded] = useState(false);
     const isMobile = screenWidth < 1024; // md breakpoint
 
     useEffect(() => {
