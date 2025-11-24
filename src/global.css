@@ -36,7 +36,7 @@
     --panel-light: #ffffff;
     --icon-light: #374151;
 
-    --primary-500: #8FDCC0;
+    --primary-500: #5acca5;
     /* muted mint for CTAs */
     --primary-600: #6FCFA3;
     --gradient-primary: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
@@ -50,7 +50,7 @@
     --panel-dark: rgba(255, 255, 255, 0.02);
     --icon-dark: #9ca3a4;
 
-    --primary-dark-500: #3fcf9a;
+    --primary-dark-500: #309975;
     --primary-dark-600: #2fbf87;
     --gradient-primary-dark: linear-gradient(135deg, var(--primary-dark-500) 0%, var(--primary-dark-600) 100%);
 }

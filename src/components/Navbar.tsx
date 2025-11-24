@@ -40,6 +40,7 @@ export function Navbar() {
 
     return (
         <nav
+            onClick={handleMenuExpanded}
             ref={wrapperRef}
             onBlur={handleBlur}
             onKeyDown={handleKeyDown}
@@ -55,12 +56,12 @@ export function Navbar() {
             `}
         >
             {/* Logo */}
-            <div className="flex items-center ~gap-2/4">
+            <div className="flex items-center gap-2">
                 <div
-                    className='mt-1 [&>svg]:h-auto text-foreground [&>svg]:~w-10/16'
+                    className='[&>svg]:h-auto text-foreground [&>svg]:~w-[2rem]/[3.2rem]'
                     dangerouslySetInnerHTML={{ __html: Logo }}
                 />
-                <div className="relative w-fit">
+                <div className="relative w-fit ">
                     {/* Invisible full-length text to reserve width */}
                     <p className="opacity-0 uppercase pointer-events-none ~/2xl:~text-2xl/5xl">
                         Rememory

@@ -1,11 +1,12 @@
 import { Navbar } from '../components/Navbar';
-import { Hero } from '../components/Home/Hero';
+import { Hero } from '../components/Home';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { useEffect, useState } from 'react';
+import Overview from '../components/Overview';
 
 const BgPatterns = () => {
   return (
-    <svg className="-z-20 absolute w-full h-full inset-0 opacity-30 overflow-hidden pointer-events-none" width="100%" height="100%">
+    <svg className="-z-20 absolute w-full [@media(max-height:900px)]:min-h-[calc(100vh+100px)] inset-0 opacity-30 overflow-hidden pointer-events-none" width="100%" height="100%">
       {/* Wireframe Grid */}
       <defs>
         <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
@@ -45,7 +46,7 @@ const BgElements = () => {
   return (
     <div className="-z-10 absolute inset-0 opacity-85 w-full h-full overflow-hidden">
       {/* Prompt Input */}
-      <div className="relative h-fit ~top-[12rem]/[12.5rem] ~/xxl:~left-[1.5rem]/[20.4rem] ~w-[18rem]/[24rem]">
+      <div className="relative h-fit ~top-[8rem]/[12.5rem] ~/xxl:~left-[1.5rem]/[20.4rem] ~w-[18rem]/[24rem]">
         <div className="-top-6 left-0 absolute font-mono text-muted uppercase tracking-wider ~text-xs/sm">Prompt Input</div>
         <div className="relative bg-background p-4 border border-zinc-700 border-dashed">
           <div className="top-0 left-0 absolute border-icon border-t-2 border-l-2 w-3 h-3"></div>
@@ -63,7 +64,7 @@ const BgElements = () => {
         </div>
       </div>
 
-      
+
 
       {/* Saved Prompt */}
       <div className="top-[25%] relative ~/xxl:~left-[0.4rem]/[81.9rem] ~w-[18rem]/[21.2rem]">
@@ -89,16 +90,23 @@ const BgElements = () => {
 const Home = () => {
   return (
     <div>
-      <div className="relative w-full [@media(max-height:850px)]:min-h-[calc(100vh+220px)] h-full">
+      <div className="relative w-full h-screen">
+        <Navbar />
+
+
         {/* Background */}
         <BgElements />
         <BgPatterns />
 
+        <div className="flex flex-col justify-center items-center [@media(max-height:900px)]:min-h-[calc(100vh+100px)] h-screen">
+          
 
-        {/* Content */}
-        <div className="flex flex-col justify-center items-center h-screen ">
-          <Navbar />
+          {/* Content */}
           <Hero />
+        </div>
+
+        <div>
+          <Overview />
         </div>
 
       </div>

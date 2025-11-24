@@ -5,7 +5,7 @@ export function Hero() {
     const [hovered, setHovered] = useState(true);
 
     return (
-        <div className="flex flex-col justify-end w-full [@media(max-height:850px)]:min-h-[calc(100vh+380px)] h-full select-none ~py-4/16 ~px-6/10">
+        <div className="flex flex-col justify-end w-full h-full select-none ~py-4/16 ~px-6/10">
             <div className="flex flex-col ~gap-4/8"
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
